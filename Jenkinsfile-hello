@@ -1,0 +1,25 @@
+pipeline
+{
+agent any
+stages
+{
+ stage ('please download code') { 
+   steps { sh 'echo download load' } }
+
+
+ stage ('executing functional & component testing ') {
+
+   parallel {  
+
+       stage ('functional-testing') {
+          steps { sh 'echo executing-functional-testing' }}
+
+       stage ('component-testing') {
+          steps { sh 'echo component-functional-testing' }}
+            }}
+
+
+ stage ('package creation') {
+    steps { sh 'echo war file created' }}
+ }
+ }
